@@ -1,0 +1,139 @@
+# CALCULATOR PROJECT
+import math
+
+def add():
+    n=int(input("Enter number of inputs you want to add: "))
+    l=[]
+    for i in range(n):
+        k=int(input())
+        l.append(k)
+    return sum(l)
+    
+def subtract():
+    n=int(input("Enter number of inputs you want to subtract: "))
+    l=[]
+    for i in range(n):
+        k=int(input())
+        l.append(k)
+    m=l.pop(0)
+    for i in l:
+        m-=i
+    return m
+    
+def multi():
+    n=int(input("Enter number of inputs you want to multiply: "))
+    l=[]
+    a=1
+    for i in range(n):
+        k=int(input())
+        l.append(k)
+    for i in l:
+        a*=i
+    return a
+    
+def div():
+    n=int(input("Enter number of inputs you want to divide: "))
+    l=[]
+    for i in range(n):
+        k=int(input())
+        l.append(k)
+    m=l.pop(0)
+    for i in l:
+        m/=i
+    return m
+    
+def hcf():
+    n=int(input("Enter number of inputs you want to find the HCF of: "))
+    l=[]
+    for i in range(n):
+        k=int(input())
+        l.append(k)
+    l2=[]
+    m=1
+    for i in l:
+        for j in range(1,i+1):
+            if i%j==0:
+                l2.append(j)
+    for i in l2:
+        o=max(l2)
+        if l2.count(o)==n:
+            m=o
+            break
+        else:
+            for i in range(l2.count(o)):
+                l2.remove(o)
+    return m
+
+    
+def pow():
+    n=int(input("Enter the numbers: "))
+    l=[]
+    for i in range(n):
+        k=int(input())
+        l.append(k)
+    m=l.pop(0)
+    for i in l:
+        m**=i
+    return m
+
+def squareroot():
+    n=int(input("Enter number of inputs you want to find the squareroot of: "))
+    l=[]
+    for i in range(n):
+        k=int(input())
+        l.append(k)
+    for i in range(len(l)):
+        l[i]**=1/2
+    return l
+
+def log():
+    n=int(input("Enter the number: "))
+    m=int(input("Enter the base: "))
+    return math.log(n,m)
+
+def mult(nums):
+    p = 1
+    for i in nums:
+        p *= i
+  
+    return p
+
+def lcm(nums):
+    for i in range(min(nums), mult(nums)):
+        for j in nums:
+            if i%j!=0:
+                break
+        if j==nums[-1]:
+            if i%j==0:
+                  return i
+
+print("\tCALCULATOR PROJECT\n")
+while True:
+    print("1.ADD\n2.DIFFERENCE\n3.PRODUCT\n4.QUOTIENT\n5.HCF\n6.LCM\n7.POWER\n9.LOG\n10.EXIT")
+    choice = int(input("\nEnter your choice: "))
+    
+    if(choice == 1):
+        print(f'Sum: {add()}')
+    elif(choice == 2):
+        print(f'Difference: {subtract()}')
+    elif(choice == 3):
+        print(f'Product: {multi()}')
+    elif(choice == 4):
+        print(f'Quotient: {div()}')
+    elif(choice == 5):
+        print(f'HCF: {hcf()}')
+    elif(choice == 6):
+        size = int(input("Enter number of inputs you want to find the LCM of: "))
+        nums=[]
+        for i in range(size):
+            nums.append(int(input(f'Enter No {i+1}: ')))
+    
+        print(f'LCM of numbers: {lcm(nums)}')
+    elif(choice == 7):
+        print(f'power of the number: {pow()}')
+    elif choice==8:
+        print(f'List of Numbers: {squareroot()}')
+    elif(choice == 9):
+        print(f'Log Value: {log()}')
+    else:
+        break
